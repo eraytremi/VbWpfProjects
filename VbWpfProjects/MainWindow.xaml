@@ -5,25 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VbWpfProjects"
         xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxnav="http://schemas.devexpress.com/winfx/2008/xaml/navigation" xmlns:dxsch="http://schemas.devexpress.com/winfx/2008/xaml/scheduling" x:Class="MainWindow"
-        mc:Ignorable="d"
+        mc:Ignorable="d" ResizeMode="NoResize"
         Title="MainWindow" Height="450" Width="800">
     <Grid Width="800">
         <Grid.RowDefinitions>
             <RowDefinition Height="415*"/>
             <RowDefinition Height="19*"/>
         </Grid.RowDefinitions>
-        <Label Content="İsim" HorizontalAlignment="Left" Margin="34,43,0,0" VerticalAlignment="Top" Width="54"/>
-        <Label Content="Soyisim" HorizontalAlignment="Left" Margin="34,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.944,2.761" Width="54"/>
-        <Label Content="Yaş&#x9;" HorizontalAlignment="Left" Margin="34,167,0,0" VerticalAlignment="Top" Width="54"/>
-        <Label Content="Cinsiyet&#x9;" HorizontalAlignment="Left" Margin="34,217,0,0" VerticalAlignment="Top" Width="54"/>
+        <Label Content="İsim" HorizontalAlignment="Left" Margin="34,43,0,0" VerticalAlignment="Top" Width="65" FontFamily="Arial" FontSize="14"/>
+        <Label Content="Soyisim" HorizontalAlignment="Left" Margin="34,103,0,0" VerticalAlignment="Top" RenderTransformOrigin="-3.944,2.761" Width="62" FontSize="14" FontFamily="Arial"/>
+        <Label Content="Yaş&#x9;" HorizontalAlignment="Left" Margin="34,167,0,0" VerticalAlignment="Top" Width="61" FontSize="14" FontFamily="Arial"/>
+        <Label Content="Cinsiyet&#x9;" HorizontalAlignment="Left" Margin="34,217,0,0" VerticalAlignment="Top" Width="70" FontSize="14" FontFamily="Arial" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-1.066"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
         <TextBox x:Name="name_txt" HorizontalAlignment="Left" Margin="142,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" />
-        <TextBox x:Name="gender_txt" HorizontalAlignment="Left" Margin="140,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
-        <TextBox x:Name="lastName_txt" HorizontalAlignment="Left" Margin="141,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" RenderTransformOrigin="0.505,0.53"/>
+        <ComboBox x:Name="gender_txt"   HorizontalAlignment="Left" Margin="142,214,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="Erkek" IsSelected="True"/>
+            <ComboBoxItem Content="Kadın"/>
+        </ComboBox>
+        <TextBox x:Name="lastName_txt" HorizontalAlignment="Left" Margin="141,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" RenderTransformOrigin="0.51,2.106"/>
         <TextBox x:Name="age_txt" HorizontalAlignment="Left" Margin="141,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
-        <Button x:Name="addButton" Content="Ekle" HorizontalAlignment="Left" Margin="67,305,0,0" VerticalAlignment="Top" />
-        <Button x:Name="clearButton" Content="Temizle" HorizontalAlignment="Left" Margin="371,303,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="deleteButton" Content="Sil" HorizontalAlignment="Left" Margin="273,303,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="updateButton" Content="Güncelle&#x9;" HorizontalAlignment="Left" Margin="149,303,0,0" VerticalAlignment="Top"/>
-        <DataGrid  x:Name="dataGrid" Margin="354,62,86,207" SelectionChanged="DataGrid_SelectionChanged_1"/>
+        <Button x:Name="addButton" Content="Ekle" HorizontalAlignment="Left" Margin="325,52,0,0" VerticalAlignment="Top" FontFamily="Arial" Height="33" Width="65" Background="#FFB2EFF4" Foreground="#FF121111" RenderTransformOrigin="0.5,0.5" FontSize="14" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="2.987"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.548"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Button x:Name="clearButton" Content="Temizle" HorizontalAlignment="Left" Margin="643,210,0,0" VerticalAlignment="Top" FontFamily="Arial" Width="95" Height="35" Background="#FFEDE0E3" FontSize="14" RenderTransformOrigin="0.625,1.71"/>
+        <Button x:Name="deleteButton" Content="Sil" HorizontalAlignment="Left" Margin="543,145,0,0" VerticalAlignment="Top" Width="73" Background="#FFEB2929" Height="33" FontSize="14"/>
+        <Button x:Name="updateButton" Content="Güncelle&#x9;" HorizontalAlignment="Left" Margin="426,99,0,0" VerticalAlignment="Top" Width="95" Background="#FF3BD227" Height="33" FontSize="14"/>
+        <DataGrid x:Name="dataGrid" Margin="3,259,0,-1" SelectionChanged="DataGrid_SelectionChanged_1" Background="#FF6DD1F3" Grid.RowSpan="2"/>
     </Grid>
 </Window>

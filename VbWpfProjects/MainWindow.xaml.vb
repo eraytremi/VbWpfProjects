@@ -1,5 +1,9 @@
 ﻿Imports System.Data
 Imports System.Data.SqlClient
+Imports System.Net.Http
+Imports System.Text
+Imports System.Text.Json
+
 Class MainWindow
     Public Sub New()
         InitializeComponent()
@@ -36,7 +40,7 @@ Class MainWindow
                 End Try
             End If
         Else
-            MessageBox.Show("Please select a row to update.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information)
+            MessageBox.Show("bir satır seç.", "No Selection", MessageBoxButton.OK, MessageBoxImage.Information)
         End If
     End Sub
 
@@ -72,31 +76,57 @@ Class MainWindow
         name_txt.Clear()
         lastName_txt.Clear()
         age_txt.Clear()
-        gender_txt.Clear()
     End Sub
 
 
 
     Private Sub addButton_Click(sender As Object, e As RoutedEventArgs) Handles addButton.Click
 
+        If String.IsNullOrWhiteSpace(name_txt.Text) OrElse
+       String.IsNullOrWhiteSpace(lastName_txt.Text) OrElse
+       String.IsNullOrWhiteSpace(age_txt.Text) Then
+            MessageBox.Show("Lütfen tüm alanları doldurun.", MessageBoxButton.OK)
+            Return
+        End If
 
-        Dim cmd As New SqlCommand("INSERT INTO Cruds VALUES (@Name, @LastName, @Age, @Gender)", connection)
-        cmd.CommandType = CommandType.Text
-        cmd.Parameters.AddWithValue("@Name", name_txt.Text)
-        cmd.Parameters.AddWithValue("@LastName", lastName_txt.Text)
-        cmd.Parameters.AddWithValue("@Age", age_txt.Text)
-        cmd.Parameters.AddWithValue("@Gender", gender_txt.Text)
 
-        connection.Open()
-        cmd.ExecuteNonQuery()
-        connection.Close()
+        Dim existingRecord As Boolean = CheckExistingRecord(name_txt.Text, lastName_txt.Text)
 
-        LoadDataGrid()
+        If existingRecord Then
+            MessageBox.Show("Bu isim ve soyisimde bir kayıt zaten mevcut!", MessageBoxButton.OK)
+        Else
+            Dim cmd As New SqlCommand("INSERT INTO Cruds VALUES (@Name, @LastName, @Age, @Gender)", connection)
+            cmd.CommandType = CommandType.Text
+            cmd.Parameters.AddWithValue("@Name", name_txt.Text)
+            cmd.Parameters.AddWithValue("@LastName", lastName_txt.Text)
+            cmd.Parameters.AddWithValue("@Age", age_txt.Text)
 
-        MessageBox.Show("Başarıyla eklendi", MessageBoxButton.OK)
+            Dim selectedGender As String = CType(gender_txt.SelectedItem, ComboBoxItem).Content.ToString()
+            cmd.Parameters.AddWithValue("@Gender", selectedGender)
+
+            connection.Open()
+            cmd.ExecuteNonQuery()
+            connection.Close()
+
+            LoadDataGrid()
+
+            MessageBox.Show("Başarıyla eklendi", MessageBoxButton.OK)
+        End If
 
     End Sub
 
+    Private Function CheckExistingRecord(name As String, lastName As String) As Boolean
+        Dim cmd As New SqlCommand("SELECT COUNT(*) FROM Cruds WHERE Name = @Name AND LastName = @LastName", connection)
+        cmd.CommandType = CommandType.Text
+        cmd.Parameters.AddWithValue("@Name", name)
+        cmd.Parameters.AddWithValue("@LastName", lastName)
+
+        connection.Open()
+        Dim count As Integer = Convert.ToInt32(cmd.ExecuteScalar())
+        connection.Close()
+
+        Return count > 0
+    End Function
 
     'datagridte verileri listeliyor
     Private Sub LoadDataGrid()
@@ -146,6 +176,7 @@ Class MainWindow
                 lastName_txt.Text = currentLastName
                 age_txt.Text = currentAge
                 gender_txt.Text = currentGender
+
             End If
         End If
     End Sub
