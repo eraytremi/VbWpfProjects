@@ -5,12 +5,14 @@ Imports System.Text
 Imports System.Text.Json
 
 Class MainWindow
+
+    Dim dt As New DataTable()
+    Dim connectionString As String = "Data Source=DESKTOP-R04PVQ3\SQLEXPRESS;Initial Catalog=wpfCrudDb; Integrated Security=True"
+    Dim connection As New SqlConnection(connectionString)
     Public Sub New()
         InitializeComponent()
     End Sub
 
-    Dim connectionString As String = "Data Source=DESKTOP-R04PVQ3\SQLEXPRESS;Initial Catalog=wpfCrudDb; Integrated Security=True"
-    Dim connection As New SqlConnection(connectionString)
 
 
     Private Sub updateButton_Click(sender As Object, e As RoutedEventArgs) Handles updateButton.Click
@@ -60,10 +62,10 @@ Class MainWindow
                         MessageBox.Show("Silindi", MessageBoxButton.OK)
                         LoadDataGrid()
                     Else
-                        MessageBox.Show("seçilen satır geçerli değil.")
+                        MessageBox.Show("seçilen satır geçerli değil.", MessageBoxButton.OK)
                     End If
                 Else
-                    MessageBox.Show("Silinecek satırı seç.")
+                    MessageBox.Show("Silinecek satırı seç.", MessageBoxButton.OK)
                 End If
             End Using ' This will automatically close the connection when exiting the Using block
         Catch ex As Exception
@@ -132,7 +134,6 @@ Class MainWindow
     Private Sub LoadDataGrid()
         Try
             Dim cmd As New SqlCommand("select * from Cruds", connection)
-            Dim dt As New DataTable()
 
             connection.Open()
             Dim sdr As SqlDataReader = cmd.ExecuteReader()

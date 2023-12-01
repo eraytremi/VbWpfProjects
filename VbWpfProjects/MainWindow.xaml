@@ -25,14 +25,14 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <TextBox x:Name="name_txt" HorizontalAlignment="Left" Margin="142,44,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" />
-        <ComboBox x:Name="gender_txt"   HorizontalAlignment="Left" Margin="142,214,0,0" VerticalAlignment="Top" Width="120">
+        <TextBox x:Name="name_txt" HorizontalAlignment="Left" Margin="141,43,0,0" TextWrapping="Wrap" Cursor="Hand" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" AllowDrop="False" Background="#FFF1EDED" />
+        <ComboBox x:Name="gender_txt"   HorizontalAlignment="Left" Margin="142,214,0,0" Cursor="Hand" VerticalAlignment="Top" Width="120" Background="#FFF1EDED">
             <ComboBoxItem Content="Erkek" IsSelected="True"/>
             <ComboBoxItem Content="Kadın"/>
         </ComboBox>
-        <TextBox x:Name="lastName_txt" HorizontalAlignment="Left" Margin="141,101,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" RenderTransformOrigin="0.51,2.106"/>
-        <TextBox x:Name="age_txt" HorizontalAlignment="Left" Margin="141,167,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2"/>
-        <Button x:Name="addButton" Content="Ekle" HorizontalAlignment="Left" Margin="325,52,0,0" VerticalAlignment="Top" FontFamily="Arial" Height="33" Width="65" Background="#FFB2EFF4" Foreground="#FF121111" RenderTransformOrigin="0.5,0.5" FontSize="14" >
+        <TextBox x:Name="lastName_txt" HorizontalAlignment="Left" Margin="141,101,0,0" TextWrapping="Wrap" Cursor="Hand" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" RenderTransformOrigin="0.51,2.106" Background="#FFF1EDED"/>
+        <TextBox x:Name="age_txt" HorizontalAlignment="Left" Margin="141,167,0,0" TextWrapping="Wrap" Cursor="Hand" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" Background="#FFF1EDED" FlowDirection="RightToLeft"/>
+        <Button x:Name="addButton" Content="Ekle" HorizontalAlignment="Left" Cursor="Hand" Margin="44,314,0,0" VerticalAlignment="Top" FontFamily="Arial" Height="33" Width="65" Background="#FFB2EFF4" Foreground="#FF121111" RenderTransformOrigin="0.5,0.5" FontSize="14" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -42,9 +42,10 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="clearButton" Content="Temizle" HorizontalAlignment="Left" Margin="643,210,0,0" VerticalAlignment="Top" FontFamily="Arial" Width="95" Height="35" Background="#FFEDE0E3" FontSize="14" RenderTransformOrigin="0.625,1.71"/>
-        <Button x:Name="deleteButton" Content="Sil" HorizontalAlignment="Left" Margin="543,145,0,0" VerticalAlignment="Top" Width="73" Background="#FFEB2929" Height="33" FontSize="14"/>
-        <Button x:Name="updateButton" Content="Güncelle&#x9;" HorizontalAlignment="Left" Margin="426,99,0,0" VerticalAlignment="Top" Width="95" Background="#FF3BD227" Height="33" FontSize="14"/>
-        <DataGrid x:Name="dataGrid" Margin="3,259,0,-1" SelectionChanged="DataGrid_SelectionChanged_1" Background="#FF6DD1F3" Grid.RowSpan="2"/>
+        <Button x:Name="clearButton" Content="Temizle" HorizontalAlignment="Left" Cursor="Hand" Margin="440,310,0,0" VerticalAlignment="Top" FontFamily="Arial" Width="95" Height="35" Background="#FFEDE0E3" FontSize="14" RenderTransformOrigin="0.625,1.71"/>
+        <Button x:Name="deleteButton" Content="Sil" HorizontalAlignment="Left" Cursor="Hand" Margin="308,313,0,0" VerticalAlignment="Top" Width="73" Background="#FFEB2929" Height="33" FontSize="14"/>
+        <Button x:Name="updateButton" Content="Güncelle&#x9;" MouseMove="LoadDataGrid" HorizontalAlignment="Left" Cursor="Hand" Margin="165,313,0,0" VerticalAlignment="Top" Width="95" Background="#FF3BD227" Height="33" FontSize="14"/>
+        <DataGrid x:Name="dataGrid" Margin="349,65,87,177" SelectionChanged="DataGrid_SelectionChanged_1" Background="#FF6DD1F3"/>
+        <Label Content="Kayıt Paneli" HorizontalAlignment="Left"  Margin="429,2,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.354,-0.277" Height="49" Width="297" FontSize="20" FontFamily="Arial Black"/>
     </Grid>
 </Window>
