@@ -14,20 +14,22 @@
             </dxwui:HamburgerMenu.BottomBarItems>
             <dxwui:HamburgerMenu.Content>
                 <dxwui:NavigationFrame>
-                    <Canvas>
-                        <DataGrid Name="dataGrid" AutoGenerateColumns="False" >
+                    <Canvas RenderTransformOrigin="0.456,0.447">
+                        <DataGrid Name="dataGrid" AutoGenerateColumns="False" SelectionMode="Single" >
                             <DataGrid.Columns>
-                                <DataGridTextColumn Header="User ID" Binding="{Binding Id}" />
-                                <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}" />
-                                <DataGridTextColumn Header="Last Name" Binding="{Binding LastName}" />
-                                <DataGridTextColumn Header="Email" Binding="{Binding Email}" />
-                                <DataGridTextColumn Header="Phone" Binding="{Binding Phone}" />
+                                <DataGridTextColumn Header="Kategory No" Binding="{Binding CategoryId}" />
+                                <DataGridTextColumn Header="Ürün İsmi" Binding="{Binding Name}" />
                             </DataGrid.Columns>
                         </DataGrid>
+                        <Frame x:Name="mainFrame" NavigationUIVisibility="Hidden"/>
+                        <Button Content="Ekle" Canvas.Left="542" Canvas.Top="72" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="41" Click="Add"/>
+                        <Button Content="Güncelle" Canvas.Left="542" Canvas.Top="172" HorizontalAlignment="Left" VerticalAlignment="Center" Width="79" Height="41" Click="Button_Click_2"/>
+                        <Button Content="Sil" Canvas.Left="542" Canvas.Top="122" HorizontalAlignment="Center" VerticalAlignment="Top" Click="Button_Click" Width="79" Height="41"/>
                     </Canvas>
+                    
                 </dxwui:NavigationFrame>
             </dxwui:HamburgerMenu.Content>
-            <dxwui:HamburgerMenuNavigationButton Content="Home" GlyphHeight="16" GlyphWidth="16" IsSelected="True" RenderTransformOrigin="0.5,0.5">
+            <dxwui:HamburgerMenuNavigationButton Content="Kullanıcılar" GlyphHeight="16" GlyphWidth="16" IsSelected="True" RenderTransformOrigin="0.5,0.5">
                 <dxwui:HamburgerMenuNavigationButton.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>

@@ -25,6 +25,8 @@
     <PackageReference Include="devexpress.wpf.gauges" Version="23.1.6" />
     <PackageReference Include="devexpress.wpf.ribbon" Version="23.1.6" />
     <PackageReference Include="DevExpress.Wpf.Themes.All" Version="23.1.6" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 </Project>

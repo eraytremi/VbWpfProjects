@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="InsertPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DXApplication2"
+      xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Add">
+    <Grid Margin="6,0,0,0" Background="White">
+        <Label Content="           Ürün Ekleme Sayfası" HorizontalAlignment="Left" FontSize="20" Margin="220,38,0,0" VerticalAlignment="Top" Height="38" Width="269" RenderTransformOrigin="0.5,0.5">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.38"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
+        <Label Content="Ürün Adı" HorizontalAlignment="Left" Margin="53,120,0,0" VerticalAlignment="Top" Height="33" Width="129"/>
+        <Label Content="Kategori No" HorizontalAlignment="Left" Margin="52,180,0,0" VerticalAlignment="Top" Height="33" Width="129"/>
+        <TextBox x:Name="urunAdi" HorizontalAlignment="Left" Height="27" TextWrapping="Wrap"  VerticalAlignment="Top" Width="109" Margin="210,121,0,0"/>
+        <TextBox x:Name="kategoriId" HorizontalAlignment="Left" Height="27" TextWrapping="Wrap"  VerticalAlignment="Top" Width="109" Margin="214,182,0,0"/>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="501,264,0,0" VerticalAlignment="Top" Height="32" Width="82" Click="Button_Click_1"/>
+
+    </Grid>
+</Page>

@@ -33,7 +33,7 @@
         <TextBox x:Name="lastName_txt" HorizontalAlignment="Left" Margin="141,101,0,0" TextWrapping="Wrap" Cursor="Hand" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" RenderTransformOrigin="0.51,2.106" Background="#FFF1EDED"/>
         <TextBox x:Name="age_txt" HorizontalAlignment="Left" Margin="141,167,0,0" TextWrapping="Wrap" Cursor="Hand" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged_2" Background="#FFF1EDED" FlowDirection="RightToLeft"/>
         <Button x:Name="addButton" Content="Ekle" HorizontalAlignment="Left" Cursor="Hand" Margin="44,314,0,0" VerticalAlignment="Top" FontFamily="Arial" Height="33" Width="65" Background="#FFB2EFF4" Foreground="#FF121111" RenderTransformOrigin="0.5,0.5" FontSize="14" >
-            <Button.RenderTransform>
+            <Button.RenderTransform>    
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform AngleX="2.987"/>
